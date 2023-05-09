@@ -1,0 +1,45 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+
+
+
+@model List<Service>
+<div class="text-center">
+    <h1>Hizmetler Listesi</h1>
+    <br /><br />
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Servis Başlığı</th>
+            <th>Servis Açıklaması</th>
+            <th>Servis Fotosu</th>
+            <th>Silme İşlemi</th>
+            <th>Güncelleme İşlemi</th>
+        </tr>
+
+
+        <tbody>
+    @foreach(var item in Model)
+    {
+    
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.ServiceTitle</td>
+            <td>@item.ServiceDescription</td>
+            <td>@item.ServiceImage</td>
+            <td>
+                <a href="/Service/DeleteService/@item.Id" class="btn btn-outline-danger">Sil</a>
+            </td>
+            <td>
+                <a asp-controller="Service" asp-action="UpdateService" asp-route-id="@item.Id" class="btn btn-outline-dark">Güncelle</a>
+            </td>
+        </tr>
+        
+    }
+            <a href="/Service/AddService" class="btn btn-primary float-end">Yeni Hizmet Ekle</a>
+        </tbody>
+
+    </table>
+    
+</div>

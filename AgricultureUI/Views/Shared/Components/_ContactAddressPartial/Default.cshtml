@@ -1,0 +1,15 @@
+﻿@model List<Address>
+<h3 class="tittle">Bize Ulaşın</h3>
+<p class="heading-btm-w3ls">Adresimiz bu şekildedir</p>
+@foreach(var item in Model) 
+{
+	<div class="col-md-3 contact-left">
+		<h4>Adres</h4>
+		<p>@item.FDesc</p>
+		<p>@item.TDesc</p>
+		
+		<h4>Numara</h4>
+		<p>@item.FoDesc</p>
+
+	</div>
+}

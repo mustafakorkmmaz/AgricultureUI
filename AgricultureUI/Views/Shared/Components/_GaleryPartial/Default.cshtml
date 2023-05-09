@@ -1,0 +1,23 @@
+﻿@model List<Image>
+<div class="gallery" id="gallery">
+	<div class="container">
+		<h3 class="tittle">Galerimiz</h3>
+		<p class="heading-btm-w3ls">İşlemlerimizle ilgili görselleri aşağıda görüntüleyebilirsiniz.</p>
+		<div class="agile_gallery_grids w3-agile">
+			<ul class="clearfix demo">
+				@foreach(var galery in Model) 
+				{
+				<li>
+					<div class="gallery-grid1">
+						<img src="~/@galery.ImageUrl" alt=" " class="img-responsive" />
+						<div class="p-mask">
+							<h4>In<span>BBara</span></h4>
+							<p>@galery.Description</p>
+						</div>
+					</div>
+				</li>
+				}
+			</ul>
+		</div>
+	</div>
+</div>

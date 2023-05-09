@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "AddImage";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{
+    Layout = "_AdminLayout";
+}
+@model Image
+
+
+<form action="/Image/AddImage" method="post">
+    <div class="form-group">
+        <p><span class="text-danger">@Html.ValidationMessageFor(p=>p.Title)</span></p>
+        @Html.DisplayNameFor(p=>p.Title)
+        @Html.TextBoxFor(p=>p.Title, new {@class="form-control mt-2"})
+    </div>
+    <div class="form-group">
+        <p><span class="text-danger">@Html.ValidationMessageFor(p=>p.Description)</span></p>
+        @Html.DisplayNameFor(p=>p.Description)
+        @Html.TextBoxFor(p=>p.Description, new {@class="form-control mt-2"})
+    </div>
+    <div class="form-group">
+        <p><span class="text-danger">@Html.ValidationMessageFor(p=>p.ImageUrl)</span></p>
+        @Html.DisplayNameFor(p=>p.ImageUrl)
+        @Html.TextBoxFor(p=>p.ImageUrl, new {@class="form-control mt-2"})
+
+    </div>
+    <button class="btn btn-secondary float-end" type="submit">Görseli Ekle</button>
+</form>
+
+
+
+
+
+

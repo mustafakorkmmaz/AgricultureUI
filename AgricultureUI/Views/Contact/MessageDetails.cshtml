@@ -1,0 +1,30 @@
+﻿@model Contact
+@{
+    
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="form-group">
+    @Html.HiddenFor(p=>p.Id)
+    
+    <label>Ad Soyad</label>
+    @Html.TextBoxFor(p=>p.Name, new {@class="form-control mt-2", @readonly="readonly"})
+</div>
+<div class="form-group">
+
+    <label>E-mail</label>
+    @Html.TextBoxFor(p=>p.Email, new {@class="form-control mt-2", @readonly="readonly"})
+</div>
+<div class="form-group">
+   <label>Contact Date</label>
+    @Html.TextBoxFor(p=>p.ContactDate, new {@class="form-control mt-2", @readonly="readonly"})
+
+</div>
+<div class="form-group">
+    
+    <label>Mesaj</label>
+    @Html.TextAreaFor(p=>p.Message, new {@class="form-control mt-2", @readonly="readonly"})
+
+    <a asp-controller="Contact" asp-action="Index" class="btn btn-primary mt-4 float-end">Geri Dön</a>
+</div>
+

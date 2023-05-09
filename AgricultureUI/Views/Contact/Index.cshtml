@@ -1,0 +1,47 @@
+﻿
+@model List<Contact> 
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_AdminLayout";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Stuff Tablosu</h4>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Ad Soyad</th>
+                            <th>Tarih</th>
+
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+
+                                <td>@item.Id</td>
+                                <td>@item.Name</td>
+                                <td>@item.ContactDate</td>
+                                <td>
+
+                                    <a asp-controller="Contact" asp-action="MessageDetails" asp-route-id="@item.Id" class="btn btn-outline-dark">Mesajın Detaylarını Görüntüle</a>
+                                </td>
+
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

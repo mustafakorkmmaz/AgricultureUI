@@ -1,0 +1,54 @@
+﻿@model Stuff
+
+@{
+    ViewData["Title"] = "AddStuff";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yeni Stuff Ekle</h4>
+            <p class="card-description">
+                Basic form elements
+            </p>
+            <form class="forms-sample" action="/Stuff/AddStuff" method="post">
+                <div class="form-group">
+                    <label for="exampleInputName1">Name</label>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                    <input type="text" class="form-control" id="exampleInputName1" placeholder="İsim ve Soyisim.." asp-for="Name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Image</label>
+                    <span asp-validation-for="Image" class="text-danger"></span>
+                    <input type="text" class="form-control" id="exampleInputEmail3" placeholder="Resim Ekleyiniz.." asp-for="Image">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Title</label>
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                    <input type="text" class="form-control" id="exampleInputPassword4" placeholder="Ünvan.." asp-for="Title">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputCity1">Facebook</label>
+                    <input type="text" class="form-control" id="exampleInputCity1" placeholder="Facebook Linki.." asp-for="FacebookUrl">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputCity1">Instagram</label>
+                    <input type="text" class="form-control" id="exampleInputCity1" placeholder="Instagram Linki.." asp-for="InstagramUrl">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputCity1">Twitter</label>
+                    <input type="text" class="form-control" id="exampleInputCity1" placeholder="Twitter Linki.." asp-for="TwitterUrl">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputCity1">Website</label>
+                    <input type="text" class="form-control" id="exampleInputCity1" placeholder="Website Linki.." asp-for="WebsiteUrl">
+                </div>
+                
+                <button type="submit" class="btn btn-primary me-2">Yeni Stuff Kaydet</button>
+                
+            </form>
+        </div>
+    </div>
+</div>
+
+

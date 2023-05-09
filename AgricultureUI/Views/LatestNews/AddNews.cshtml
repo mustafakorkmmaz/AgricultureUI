@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "AddNews";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@{
+    Layout = "_AdminLayout";
+}
+@model AnnouncementViewModel
+
+
+<form action="/LatestNews/AddNews" method="post">
+    <div class="form-group">
+        
+        @Html.DisplayNameFor(p=>p.Title)
+        @Html.TextBoxFor(p=>p.Title, new {@class="form-control mt-2"})
+    </div>
+    <div class="form-group">
+        
+        @Html.DisplayNameFor(p=>p.Description)
+        @Html.TextBoxFor(p=>p.Description, new {@class="form-control mt-2"})
+    </div>
+    
+    <button class="btn btn-success float-end" type="submit">Haberi Ekle</button>
+</form>
+
+
+
+
+
+

@@ -1,0 +1,60 @@
+﻿@model List<Image>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Stuff Tablosu</h4>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Title</th>
+                            <th>Silme İşlemi</th>
+                            <th>Güncelleme İşlemi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @item.Id
+                                </td>
+                                <td>
+                                    <img src="~/@item.ImageUrl" alt="image" />
+                                </td>
+                                <td>
+                                    @item.Title
+                                </td>
+                                <td>
+                                    @item.Description
+                                </td>
+                                <td>
+                                    <a href="/Image/DeleteImage/@item.Id" class="btn btn-outline-danger">Sil</a>
+                                </td>
+                                <td>
+                                    <a asp-controller="Image" asp-action="UpdateImage" asp-route-id="@item.Id" class="btn btn-outline-dark">Güncelle</a>
+                                </td>
+
+                            </tr>
+                        }
+                        <a href="/Image/AddImage" class="btn btn-primary float-end">Yeni Görsel Ekle</a>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

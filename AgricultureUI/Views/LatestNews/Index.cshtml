@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@model List<News>
+<div class="text-center">
+    <h1>Haberler Listesi</h1>
+    <br /><br />
+    <table class="table table-bordered">
+        <tr>
+            <th>#</th>
+            <th>Haber Başlığı</th>
+            <th>Haber Açıklaması</th>
+            <th>Haber Tarihi</th>
+            <th>Pasif Yap</th>
+            <th>Aktif Et</th>
+            <th>Silme İşlemi</th>
+            <th>Güncelleme İşlemi</th>
+
+        </tr>
+
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Title</td>
+                    <td>@item.Description</td>
+                    <td>@item.NewsDate</td>
+                    
+    
+                    <td>
+                        <a href="/LatestNews/UpdateStatusFalse/@item.Id" class="btn btn-outline-secondary">Pasif Et</a>
+                    </td>
+                    <td>
+                        <a href="/LatestNews/UpdateStatusTrue/@item.Id" class="btn btn-outline-warning">Aktif Et</a>
+                    </td>
+                    <td>
+                        <a href="/LatestNews/DeleteNews/@item.Id" class="btn btn-outline-danger">Sil</a>
+                    </td>
+                    <td>
+                        <a asp-controller="LatestNews" asp-action="UpdateNews" asp-route-id="@item.Id" class="btn btn-outline-dark">Güncelle</a>
+                    </td>
+                </tr>
+
+            }
+            <a href="/LatestNews/AddNews" class="btn btn-primary float-end">Yeni Haber Ekle</a>
+        </tbody>
+
+    </table>
+
+</div>
+

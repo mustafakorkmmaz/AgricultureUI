@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "UpdateAddress";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@model AddressUpdateViewModel 
+<form action="/Address/UpdateAddress/@Model.Id" method="post">
+    <div class="form-group">
+        @Html.HiddenFor(p=>p.Id)
+        <p><span class="text-danger">@Html.ValidationMessageFor(p=>p.FDesc)</span></p>
+        @Html.DisplayNameFor(p=>p.FDesc)
+        @Html.TextBoxFor(p=>p.FDesc, new {@class="form-control mt-2"})
+    </div>
+    <div class="form-group">
+        
+        @Html.DisplayNameFor(p=>p.SDesc)
+        @Html.TextBoxFor(p=>p.SDesc, new {@class="form-control mt-2"})
+    </div>
+    <div class="form-group">
+        @Html.DisplayNameFor(p=>p.TDesc)
+        @Html.TextBoxFor(p=>p.TDesc, new {@class="form-control mt-2"})
+
+    </div>
+    <div class="form-group">
+        @Html.DisplayNameFor(p=>p.FoDesc)
+        @Html.TextBoxFor(p=>p.FoDesc, new {@class="form-control mt-2"})
+
+    </div>
+    <div class="form-group">
+        <p><span class="text-danger">@Html.ValidationMessageFor(p=>p.MapInfo)</span></p>
+        @Html.DisplayNameFor(p=>p.MapInfo)
+        @Html.TextBoxFor(p=>p.MapInfo, new {@class="form-control mt-2"})
+
+    </div>
+    <button class="btn btn-secondary float-end" type="submit">Adres Değişikliklerini Kaydet</button>
+</form>
+
+

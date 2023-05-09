@@ -1,0 +1,27 @@
+﻿@model AnnouncementViewModel
+@{
+    ViewData["Title"] = "UpdateNews";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form action="/LatestNews/UpdateNews/@Model.Id" method="post">
+    <div class="form-group">
+       
+        @Html.DisplayNameFor(p=>p.Title)
+        @Html.TextBoxFor(p=>p.Title, new {@class="form-control"})
+    </div>
+    <div class="form-group">
+       
+        @Html.DisplayNameFor(p=>p.Description)
+        @Html.TextBoxFor(p=>p.Description, new {@class="form-control"})
+    </div>
+    <div class="form-group">
+        
+        @Html.DisplayNameFor(p=>p.NewsDate)
+        <input type="date" asp-for="NewsDate" class="form-control" />
+
+    </div>
+    <button class="btn btn-primary float-end" type="submit">Değişiklikleri Kaydet</button>
+</form>
+
+

@@ -1,0 +1,30 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+@model ServiceEklemeViewModel
+
+
+<form action="/Service/UpdateService/@Model.Id" method="post">
+    <div class="form-group">
+        <p><span class="text-danger">@Html.ValidationMessageFor(p=>p.ServiceTitle)</span></p>
+        @Html.DisplayNameFor(p=>p.ServiceTitle)
+        @Html.TextBoxFor(p=>p.ServiceTitle, new {@class="form-control"})
+    </div>
+    <div class="form-group">
+        <p><span class="text-danger">@Html.ValidationMessageFor(p=>p.ServiceDescription)</span></p>
+        @Html.DisplayNameFor(p=>p.ServiceDescription)
+        @Html.TextBoxFor(p=>p.ServiceDescription, new {@class="form-control"})
+    </div>
+    <div class="form-group">
+        <p><span class="text-danger">@Html.ValidationMessageFor(p=>p.ServiceImage)</span></p>
+        @Html.DisplayNameFor(p=>p.ServiceImage)
+        @Html.TextBoxFor(p=>p.ServiceImage, new {@class="form-control"})
+
+    </div>
+    <button class="btn btn-primary float-end" type="submit">Değişiklikleri Kaydet</button>
+</form>
+
+
+
+
+

@@ -1,0 +1,20 @@
+﻿@{
+   
+    Layout = "_AdminLayout";
+}
+@model Admin
+<form action="/Admin/AddAdmin" method="post">
+    <div class="form-group">
+
+        <label>Kullanıcı Adı</label>
+        <input class="form-control" type="text" asp-for="Username" />
+    </div>
+    <div class="form-group">
+
+        <label>Şifre</label>
+        <input class="form-control" type="password" asp-for="Password" />
+    </div>
+    
+   
+    <button class="btn btn-success float-end" type="submit">Admini Ekle</button>
+</form>

@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "_AdminLayout";
+}
+@model ServiceEklemeViewModel
+
+
+<form action="/Service/AddService" method="post">
+    <div class="form-group">
+        <p><span class="text-danger">@Html.ValidationMessageFor(p=>p.ServiceTitle)</span></p>
+        @Html.DisplayNameFor(p=>p.ServiceTitle)
+        @Html.TextBoxFor(p=>p.ServiceTitle, new {@class="form-control mt-2"})
+    </div>
+    <div class="form-group">
+        <p><span class="text-danger">@Html.ValidationMessageFor(p=>p.ServiceDescription)</span></p>
+        @Html.DisplayNameFor(p=>p.ServiceDescription)
+        @Html.TextBoxFor(p=>p.ServiceDescription, new {@class="form-control mt-2"})
+    </div>
+    <div class="form-group">
+        <p><span class="text-danger">@Html.ValidationMessageFor(p=>p.ServiceImage)</span></p>
+        @Html.DisplayNameFor(p=>p.ServiceImage)
+        @Html.TextBoxFor(p=>p.ServiceImage, new {@class="form-control mt-2"})
+        
+    </div>
+    <button class="btn btn-success float-end" type="submit">Servisi Ekle</button>
+</form>
+    
+
+
+

@@ -1,0 +1,100 @@
+﻿@model List<City>
+<div class="row">
+    <div class="col-md-7 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-title">Hizmet Tablomuz</p>
+                <p class="mb-4">Bu tabloda kurulduğumuz dönemden itibaren bizimle çalışan firma sayılarını görebilirsiniz.</p>
+                <div id="cash-deposits-chart-legend" class="d-flex justify-content-center pt-3"></div>
+                <canvas id="myChartF" style="width:100%;max-width:700px"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <p class="card-title">Total Kazancımız</p>
+                <h2>$28835</h2>
+                <h5>Gelin birlikte büyüyelim</h5>
+                <p class="text-muted">Çeşitli illerden birden çok tarım emekçisine hizmet veriyoruz. </p>
+                <div id="total-sales-chart-legend"></div>
+            </div>
+            <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script>
+    var xyValues = [
+        { x: 50, y: 7 },
+        { x: 60, y: 8 },
+        { x: 70, y: 8 },
+        { x: 80, y: 9 },
+        { x: 90, y: 9 },
+        { x: 100, y: 9 },
+        { x: 110, y: 10 },
+        { x: 120, y: 11 },
+        { x: 130, y: 14 },
+        { x: 140, y: 14 },
+        { x: 150, y: 15 }
+    ];
+
+    new Chart("myChartF", {
+        type: "scatter",
+        data: {
+            datasets: [{
+                pointRadius: 4,
+                pointBackgroundColor: "rgb(0,0,255)",
+                data: xyValues
+            }]
+        },
+        options: {
+            legend: { display: false },
+            scales: {
+                xAxes: [{ ticks: { min: 40, max: 160 } }],
+                yAxes: [{ ticks: { min: 6, max: 16 } }],
+            }
+        }
+    });
+</script>
+<script>
+    
+    var xValues = @Html.Raw(Json.Serialize(ViewBag.cities));
+    var yValues = @Html.Raw(Json.Serialize(ViewBag.Nume));
+
+    //var yValues = [55, 49, 44, 24, 15,23];
+    
+    
+    
+
+    
+
+    var barColors = [
+        "#b91d47",
+        "#00aba9",
+        "#2b5797",
+        "#e8c3b9",
+        "#1e7145",
+        "#D4ADFC"
+    ];
+
+    new Chart("myChart", {
+        type: "pie",
+        data: {
+            labels: xValues,
+            datasets: [{
+                backgroundColor: barColors,
+                data: yValues
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: "Calıştığımız Şehirlere Verdiğimiz Hizmet Dağılım Tablosu"
+            }
+        }
+    });
+</script>
+
+

@@ -1,0 +1,10 @@
+﻿@model List<SocialMedia>
+<div class="w3l_header_right">
+	<div class="w3ls-social-icons text-left">
+		@foreach(var sm in Model) 
+		{
+		<a class="@sm.Title" href="@sm.Url"><i class="@sm.Icon"></i></a>
+		
+		}
+	</div>
+</div>
